@@ -1,39 +1,266 @@
-##Orders
+## Orders
 <a name='affiliate'/>
-###affiliate
+### affiliate
+- affiliate_id**//|int(11)
+- firstname|varchar(32)
+- lastname|varchar(32)
+- email|varchar(96)
+- telephone|varchar(32)
+- fax|varchar(32)
+- password|varchar(40)
+- salt|varchar(9)
+- company|varchar(40)
+- website|varchar(255)
+- address_1|varchar(128)
+- address_2|varchar(128)
+- - city|varchar(128)
+- postcode|varchar(10)
+- country_id|int(11)
+- zone_id|int(11)
+- code|varchar(64)
+- commission|decimal(4,2)
+- tax|varchar(64)
+- payment|varchar(6)
+- cheque|varchar(100)
+- paypal|varchar(64)
+- bank_name|varchar(64)
+- bank_branch_number|varchar(64)
+- bank_swift_code|varchar(64)
+- bank_account_name|varchar(64)
+- bank_account_number|varchar(64)
+- ip|varchar(40)
+- status|tinyint(1)
+- approved|tinyint(1)
+- date_added|datetime
 
 <a name='affiliate_transaction'/>
-###affiliate_transaction
+### affiliate_transaction
+- affiliate_transaction_id:int(11)
+- affiliate_id:int(11)
+- order_id:int(11)
+- description:text
+- amount:decimal(15,4)
+- date_added:datetime
+
+<a name='affiliate_login'/>
+### affiliate_login
+- affiliate_login_id:int(11)
+- email:varchar(96)
+- ip:varchar(40)
+- total:int(4)
+- date_added:datetime
+- date_modified:datetime
+
+<a name='affiliate_activity'/>
+### affiliate_activity
+- activity_id:int(11)
+- affiliate_id:int(11)
+- key:varchar(64)
+- data:text
+- ip:varchar(40)
+- date_added:datetime
 
 <a name='order'/>
-###order
-
-<a name='order_download'/>
-###order_download
+### order
+- order_id:int(11)
+- invoice_no:int(11)
+- invoice_prefix:varchar(26)
+- store_id:int(11)
+- store_name:varchar(64)
+- store_url:varchar(255)
+- customer_id:int(11)
+- customer_group_id:int(11)
+- firstname:varchar(32)
+- lastname:varchar(32)
+- email:varchar(96)
+- telephone:varchar(32)
+- fax|:varchar(32)
+- custom_field:text
+- payment_firstname:varchar(32)
+- payment_lastname:varchar(32)
+- payment_company:varchar(40)
+- payment_address_1:varchar(128)
+- payment_address_2:varchar(128)
+- payment_city:varchar(128)
+- payment_postcode:varchar(10)
+- payment_country:varchar(128)
+- payment_country_id:int(11)
+- payment_zone:varchar(128)
+- payment_zone_id:int(11)
+- payment_address_format:text
+- payment_custom_field:text
+- payment_method:varchar(128)
+- payment_code:varchar(128)
+- shipping_firstname:varchar(32)
+- shipping_lastname:varchar(32)
+- shipping_company:varchar(40)
+- shipping_address_1:varchar(128)
+- shipping_address_2:varchar(128)
+- shipping_city:varchar(128)
+- shipping_postcode:varchar(10)
+- shipping_country:varchar(128)
+- shipping_country_id:int(11)
+- shipping_zone:varchar(128)
+- shipping_zone_id:int(11)
+- shipping_address_format:text
+- shipping_custom_field:text
+- shipping_method:varchar(128)
+- shipping_code:varchar(128)
+- comment:text
+- total:decimal(15,4)
+- order_status_id:int(11)
+- affiliate_id:int(11)
+- commission:decimal(15,4)
+- marketing_id:int(11)
+- tracking:varchar(64)
+- language_id:int(11)
+- currency_id:int(11)
+- currency_code:varchar(3)
+- currency_value:decimal(15,8)
+- ip:varchar(40)
+- forwarded_ip:varchar(40)
+- user_agent:varchar(255)
+- accept_language:varchar(255)
+- date_added:datetime
+- date_modified:datetime
 
 <a name='order_history'/>
-###order_history
+### order_history
+- order_history_id:int(11)
+- order_id:int(11)
+- order_status_id:int(11)
+- notify:tinyint(1)
+- comment:text
+- date_added:datetime
+
+<a name='order_custom_field'/>
+### order_custom_field
+- order_custom_field_id:int(11)
+- order_id:int(11)
+- custom_field_id:int(11)
+- custom_field_value_id:int(11)
+- name:varchar(255)
+- value:text
+- type:varchar(32)
+- location:varchar(16)
 
 <a name='order_option'/>
-###order_option
+### order_option
+- order_option_id:int(11)
+- order_id:int(11)
+- order_product_id:int(11)
+- product_option_id:int(11)
+- product_option_value_id:int(11)
+- name:varchar(255)
+- value:text
+- type:varchar(32)
 
 <a name='order_product'/>
-###order_product
+### order_product
+- order_product_id:int(11)
+- order_id:int(11)
+- product_id:int(11)
+- name:varchar(255)
+- model:varchar(64)
+- quantity:int(4)
+- price:decimal(15,4)
+- total:decimal(15,4)
+- - tax:decimal(15,4)
+- reward:int(8)
 
 <a name='order_status'/>
-###order_status
+### order_status
+- order_status_id:int(11)
+- language_id:int(11)
+- name:varchar(32)
 
 <a name='order_total'/>
-###order_total
+### order_total
+- order_total_id:int(10)
+- order_id:int(11)
+- code:varchar(32)
+- title:varchar(255)
+- value:decimal(15,4)
+- sort_order:int(3)
+
+<a name='order_voucher'/>
+### order_voucher
+- order_voucher_id:int(11)
+- order_id:int(11)
+- voucher_id:int(11)
+- description:varchar(255)
+- code:varchar(10)
+- from_name:varchar(64)
+- from_email:varchar(96)
+- to_name:varchar(64)
+- to_email:varchar(96)
+- voucher_theme_id:int(11)
+- message:text
+- amount:decimal(15,4)
+
+<a name='order_recurring'/>
+### order_recurring
+- order_recurring_id:int(11)
+- order_id:int(11)
+- reference:varchar(255)
+- product_id:int(11)
+- product_name:varchar(255)
+- product_quantity:int(11)
+- recurring_id:int(11)
+- recurring_name:varchar(255)
+- recurring_description:varchar(255)
+- recurring_frequency:varchar(25)
+- recurring_cycle:smallint(6)
+- recurring_duration:smallint(6)
+- recurring_price:decimal(10,4)
+- trial:tinyint(1)
+- trial_frequency:varchar(25)
+- trial_cycle:smallint(6)
+- trial_duration:smallint(6)
+- trial_price:decimal(10,4)
+- status:tinyint(4)
+- date_added:datetime
+
+<a name='order_recurring_transaction'/>
+### order_recurring_transaction
+- order_recurring_transaction_id:int(11)
+- order_recurring_id:int(11)
+- reference:varchar(255)
+- type:varchar(255)
+- amount:decimal(10,4)
+- date_added:datetime
 
 <a name='voucher'/>
-###voucher
+### voucher
+- voucher_id:int(11)
+- order_id:int(11)
+- code:varchar(10)
+- from_name:varchar(64)
+- from_email:varchar(96)
+- to_name:varchar(64)
+- to_email:varchar(96)
+- voucher_theme_id:int(11)
+- message:text
+- amount:decimal(15,4)
+- status:tinyint(1)
+- date_added:datetime
 
 <a name='voucher_history'/>
-###voucher_history
+### voucher_history
+- voucher_history_id:int(11)
+- voucher_id:int(11)
+- order_id:int(11)
+- amount:decimal(15,4)
+- date_added:datetime
 
 <a name='voucher_theme'/>
-###voucher_theme
+### voucher_theme
+- voucher_theme_id:int(11)
+- image:varchar(255)
 
 <a name='voucher_theme_description'/>
-###voucher_theme_description
+### voucher_theme_description
+- voucher_theme_id:int(11)
+- language_id:int(11)
+- name:varchar(32)
+
