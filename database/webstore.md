@@ -1,7 +1,7 @@
 ## Webstore
 <a name='banner'/>
 ### banner
-- banner_id:
+- banner_id:int(11)
 - name:varchar(64)
 - status:tinyint(1)
 
