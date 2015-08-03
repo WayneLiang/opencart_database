@@ -14,12 +14,12 @@
 - uses_total:int(11)
 - uses_customer:varchar(11)
 - status:tinyint(1)
-- date:added:datetime
+- date_added:datetime
 
 <a name='coupon_history'/>
 ### coupon_history
 - coupon_history_id:int(11)
-- - coupon_id:int(11)
+- coupon_id:int(11)
 - order_id:int(11)
 - customer_id:int(11)
 - amount:decimal(15,4)
